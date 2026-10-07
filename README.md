@@ -167,22 +167,23 @@ Access Oracle Enterprise Manager and capture the dashboard reflecting the Oracle
 
 | Item              | Details                                          |
 |-------------------|--------------------------------------------------|
-| **OEM Product**   | Oracle Enterprise Manager Database Express       |
-| **Access URL**    | `https://localhost:5500/em` (or your OEM URL)    |
-| **Login User**    | SYS as SYSDBA                                    |
+| **Dashboard**     | Oracle Database Administration (Instance Viewer) |
+| **Monitored DB**  | `FREE` 23.0.0.0.0 (Primary CDB)                  |
+| **Connection**    | `CDB_Root` as SYSDBA                             |
+| **Visible PDB**   | `AR_PDB_20252IMA134` (under Container Database)  |
 
 ### What the Dashboard Shows
-- Oracle database instance status
-- PDB containers managed under the CDB
-- Performance metrics and resource usage
-- Username visible on the dashboard
+- Oracle database instance status (`FREE` Primary CDB 23c)
+- Performance metrics: Sessions, Waits, Execution Rate, Top SQL, Memory/Storage
+- PDB containers managed under CDB showing **`AR_PDB_20252IMA134`**
+- Active administrator session
 
 ### Evidence
 
 | Step | Description | Screenshot |
 |---|---|---|
-| 1 | **OEM HTTPS Port Configuration (5500)** | ![OEM Port Configured](screenshots/oem_dashboard/02_oem_port_configured.png) |
-| 2 | **OEM Browser Access Attempt (`https://localhost:5500/em`)** | ![OEM Browser Access](screenshots/oem_dashboard/01_oem_browser_access.png) |
+| 1 | **Database Administration Dashboard (Instance Viewer)**<br>Reflects database metrics, active session, and created container **`AR_PDB_20252IMA134`** | ![OEM Dashboard](screenshots/oem_dashboard/01_oem_instance_viewer_dashboard.png) |
+| 2 | **OEM Port Configuration via PL/SQL (5500)** | ![OEM Port Configured](screenshots/oem_dashboard/02_oem_port_configured.png) |
 
 ---
 
