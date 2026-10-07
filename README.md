@@ -58,36 +58,7 @@ Create a new Pluggable Database and a user account inside it that will be reused
 5. **Created the user** with appropriate privileges (`CREATE SESSION`, `CREATE TABLE`, `CREATE VIEW`, `CREATE SEQUENCE`, `CREATE PROCEDURE`)
 6. **Verified** the PDB is in `READ WRITE` mode and the user is active
 
-### SQL Commands Executed
 
-```sql
--- Step 1: Create the PDB from CDB root
-CREATE PLUGGABLE DATABASE ar_pdb_20252IMA134
-  ADMIN USER pdbadmin IDENTIFIED BY "YourPassword";
-
--- Step 2: Open the PDB
-ALTER PLUGGABLE DATABASE ar_pdb_20252IMA134 OPEN;
-ALTER PLUGGABLE DATABASE ar_pdb_20252IMA134 SAVE STATE;
-
--- Step 3: Verify PDB is open
-SELECT name, open_mode FROM v$pdbs WHERE name = 'AR_PDB_20252IMA134';
-
--- Step 4: Switch into the PDB
-ALTER SESSION SET CONTAINER = ar_pdb_20252IMA134;
-
--- Step 5: Create the user
-CREATE USER arnold_plsqlauca_20252IMA134
-  IDENTIFIED BY "YourPassword";
-
-GRANT CREATE SESSION, CREATE TABLE, CREATE VIEW, CREATE SEQUENCE, CREATE PROCEDURE
-  TO arnold_plsqlauca_20252IMA134;
-
-ALTER USER arnold_plsqlauca_20252IMA134 QUOTA UNLIMITED ON USERS;
-
--- Step 6: Verify user creation
-SELECT username, account_status FROM dba_users
-WHERE username = 'ARNOLD_PLSQLAUCA_20252IMA134';
-```
 
 ### Evidence
 
@@ -123,29 +94,7 @@ Demonstrate the full PDB lifecycle by creating a temporary PDB, verifying its ex
 5. **Dropped the PDB** including all data files
 6. **Confirmed deletion** — query returns no rows
 
-### SQL Commands Executed
 
-```sql
--- Step 1: Create the temporary PDB
-CREATE PLUGGABLE DATABASE ar_to_delete_pdb_20252IMA134
-  ADMIN USER tempadmin IDENTIFIED BY "Temp2025"
-  FILE_NAME_CONVERT = ('C:\APP\PARADOX\PRODUCT\26AI\ORADATA\FREE\PDBSEED\',
-                        'C:\APP\PARADOX\PRODUCT\26AI\ORADATA\FREE\AR_TO_DELETE_PDB_20252IMA134\');
-
--- Step 2: Verify the PDB exists
-SELECT name, open_mode FROM v$pdbs
-WHERE name = 'AR_TO_DELETE_PDB_20252IMA134';
-
--- Step 3: Close the PDB before deletion
-ALTER PLUGGABLE DATABASE ar_to_delete_pdb_20252IMA134 CLOSE IMMEDIATE;
-
--- Step 4: Drop the PDB including datafiles
-DROP PLUGGABLE DATABASE ar_to_delete_pdb_20252IMA134 INCLUDING DATAFILES;
-
--- Step 5: Confirm the PDB no longer exists (should return no rows)
-SELECT name FROM v$pdbs
-WHERE name = 'AR_TO_DELETE_PDB_20252IMA134';
-```
 
 ### Evidence
 
@@ -198,35 +147,3 @@ Access Oracle Enterprise Manager and capture the dashboard reflecting the Oracle
 
 ---
 
-## 🔒 Academic Integrity Statement
-
-> I, **MUSAFIRI Arnold** (Student ID: **20252IMA134**), hereby confirm that this submission represents my own individual work. All commands were executed in my own Oracle environment, and all screenshots are authentic captures from my personal sessions. No part of this work was copied from or shared with any classmate. I have adhered to the academic integrity guidelines set forth by the course instructor.
-
----
-
-## 📤 Submission Details
-
-```
-Repository Link : https://github.com/musafiri8/oracle_pdb_ass_II_20252IMA134_arnold
-PDB Name Created: ar_pdb_20252IMA134
-Issues Encountered: No
-```
-
----
-
-## 📁 Repository Structure
-
-```
-oracle_pdb_ass_II_20252IMA134_arnold/
-│
-├── README.md
-│
-└── screenshots/
-    ├── pdb_creation/       ← Task 1 evidence
-    ├── pdb_deletion/       ← Task 2 evidence
-    └── oem_dashboard/      ← Task 3 evidence
-```
-
----
-
-<p align="center"><em>"Excellence is never an accident; it is the result of discipline, commitment, and integrity."</em></p>
