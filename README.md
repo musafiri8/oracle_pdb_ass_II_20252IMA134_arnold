@@ -90,7 +90,8 @@ WHERE username = 'ARNOLD_PLSQLAUCA_20252IMA134';
 ```
 
 ### Evidence
-📸 Screenshots are available in: [`screenshots/pdb_creation/`](screenshots/pdb_creation/)
+📸 Screenshots are available in: 
+<img width="877" height="635" alt="image" src="https://github.com/user-attachments/assets/c1c3a4b6-8aca-4f5f-8d04-a02e299cee31" />
 
 ---
 
