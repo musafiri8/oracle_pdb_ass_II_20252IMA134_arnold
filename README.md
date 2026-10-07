@@ -184,7 +184,7 @@ Access Oracle Enterprise Manager and capture the dashboard reflecting the Oracle
 ## 📤 Submission Details
 
 ```
-Repository Link : https://github.com/YOUR_USERNAME/oracle_pdb_ass_II_20252IMA134_arnold
+Repository Link : https://github.com/musafiri8/oracle_pdb_ass_II_20252IMA134_arnold
 PDB Name Created: ar_pdb_20252IMA134
 Issues Encountered: No
 ```
