@@ -1,4 +1,4 @@
-#  Oracle Pluggable Database (PDB) Management — Assignment II
+# 🗄️ Oracle Pluggable Database (PDB) Management — Assignment II
 
 <table>
   <tr><td><strong>Student</strong></td><td>MUSAFIRI Arnold</td></tr>
@@ -11,7 +11,7 @@
 
 ---
 
-##  Overview
+## 📖 Overview
 
 This repository documents my practical work on **Oracle Multitenant Architecture**, specifically focusing on:
 
@@ -29,7 +29,7 @@ All tasks were performed individually using **Oracle SQL Developer (Version 26.2
 | Component               | Details                                  |
 |--------------------------|------------------------------------------|
 | **Database Client**      | Oracle SQL Developer 26.2.0.186.2220     |
-| **Oracle Database**      | Oracle 21c (or specify your version)     |
+| **Oracle Database**      | Oracle Database 23ai Free                |
 | **Operating System**     | Windows                                  |
 | **Architecture**         | Oracle Multitenant (CDB + PDB)           |
 | **OEM**                  | Oracle Enterprise Manager Database Express |
@@ -90,9 +90,16 @@ WHERE username = 'ARNOLD_PLSQLAUCA_20252IMA134';
 ```
 
 ### Evidence
-📸 Screenshots are available in: 
-<img width="877" height="635" alt="image" src="https://github.com/user-attachments/assets/c1c3a4b6-8aca-4f5f-8d04-a02e299cee31" />
-<img width="869" height="664" alt="image" src="https://github.com/user-attachments/assets/e1d59e18-db7b-45c5-884f-b066dc609b4d" />
+
+| Step | Description | Screenshot |
+|---|---|---|
+| 1 | **PDB Creation Command & Output** | ![PDB Created](screenshots/pdb_creation/01_pdb_created.png) |
+| 2 | **PDB Altered** | ![PDB Alter](screenshots/pdb_creation/02_pdb_alter.png) |
+| 3 | **PDB Save State** | ![PDB Save State](screenshots/pdb_creation/03_pdb_save_state.png) |
+| 4 | **PDB Open in READ WRITE Mode** | ![PDB Open Read Write](screenshots/pdb_creation/04_pdb_open_readwrite.png) |
+| 5 | **User Arnold Created** | ![User Created](screenshots/pdb_creation/05_user_created.png) |
+| 6 | **Grant Privileges & Quota** | ![Grant Privileges](screenshots/pdb_creation/06_grant_privileges.png) |
+| 7 | **User Status Verified OPEN** | ![User Status Open](screenshots/pdb_creation/07_user_status_open.png) |
 
 ---
 
@@ -121,7 +128,9 @@ Demonstrate the full PDB lifecycle by creating a temporary PDB, verifying its ex
 ```sql
 -- Step 1: Create the temporary PDB
 CREATE PLUGGABLE DATABASE ar_to_delete_pdb_20252IMA134
-  ADMIN USER tempadmin IDENTIFIED BY "YourPassword";
+  ADMIN USER tempadmin IDENTIFIED BY "Temp2025"
+  FILE_NAME_CONVERT = ('C:\APP\PARADOX\PRODUCT\26AI\ORADATA\FREE\PDBSEED\',
+                        'C:\APP\PARADOX\PRODUCT\26AI\ORADATA\FREE\AR_TO_DELETE_PDB_20252IMA134\');
 
 -- Step 2: Verify the PDB exists
 SELECT name, open_mode FROM v$pdbs
@@ -139,7 +148,13 @@ WHERE name = 'AR_TO_DELETE_PDB_20252IMA134';
 ```
 
 ### Evidence
-📸 Screenshots are available in: [`screenshots/pdb_deletion/`](screenshots/pdb_deletion/)
+
+| Step | Description | Screenshot |
+|---|---|---|
+| 1 | **Temporary PDB Creation** | ![Temp PDB Created](screenshots/pdb_deletion/01_temp_pdb_created.png) |
+| 2 | **Verify Temporary PDB Exists** | ![Temp PDB Exists](screenshots/pdb_deletion/02_temp_pdb_exists.png) |
+| 3 | **Drop Temporary PDB** | ![Temp PDB Dropped](screenshots/pdb_deletion/03_temp_pdb_dropped.png) |
+| 4 | **Confirmation (No Rows Selected)** | ![Deletion Confirmed](screenshots/pdb_deletion/04_deletion_confirmed.png) |
 
 ---
 
@@ -175,3 +190,37 @@ Access Oracle Enterprise Manager and capture the dashboard reflecting the Oracle
 | 2 | Ensuring correct naming conventions               | Double-checked all names against the assignment specification |
 | 3 | Connecting to PDB after creation                  | Used `ALTER SESSION SET CONTAINER` and created new SQL Developer connections |
 
+---
+
+## 🔒 Academic Integrity Statement
+
+> I, **MUSAFIRI Arnold** (Student ID: **20252IMA134**), hereby confirm that this submission represents my own individual work. All commands were executed in my own Oracle environment, and all screenshots are authentic captures from my personal sessions. No part of this work was copied from or shared with any classmate. I have adhered to the academic integrity guidelines set forth by the course instructor.
+
+---
+
+## 📤 Submission Details
+
+```
+Repository Link : https://github.com/musafiri8/oracle_pdb_ass_II_20252IMA134_arnold
+PDB Name Created: ar_pdb_20252IMA134
+Issues Encountered: No
+```
+
+---
+
+## 📁 Repository Structure
+
+```
+oracle_pdb_ass_II_20252IMA134_arnold/
+│
+├── README.md
+│
+└── screenshots/
+    ├── pdb_creation/       ← Task 1 evidence
+    ├── pdb_deletion/       ← Task 2 evidence
+    └── oem_dashboard/      ← Task 3 evidence
+```
+
+---
+
+<p align="center"><em>"Excellence is never an accident; it is the result of discipline, commitment, and integrity."</em></p>
