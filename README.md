@@ -1,4 +1,4 @@
-# 🗄️ Oracle Pluggable Database (PDB) Management — Assignment II
+#  Oracle Pluggable Database (PDB) Management — Assignment II
 
 <table>
   <tr><td><strong>Student</strong></td><td>MUSAFIRI Arnold</td></tr>
@@ -11,7 +11,7 @@
 
 ---
 
-## 📖 Overview
+##  Overview
 
 This repository documents my practical work on **Oracle Multitenant Architecture**, specifically focusing on:
 
