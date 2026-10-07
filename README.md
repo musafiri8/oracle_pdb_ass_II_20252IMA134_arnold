@@ -178,7 +178,11 @@ Access Oracle Enterprise Manager and capture the dashboard reflecting the Oracle
 - Username visible on the dashboard
 
 ### Evidence
-📸 Screenshots are available in: [`screenshots/oem_dashboard/`](screenshots/oem_dashboard/)
+
+| Step | Description | Screenshot |
+|---|---|---|
+| 1 | **OEM HTTPS Port Configuration (5500)** | ![OEM Port Configured](screenshots/oem_dashboard/02_oem_port_configured.png) |
+| 2 | **OEM Browser Access Attempt (`https://localhost:5500/em`)** | ![OEM Browser Access](screenshots/oem_dashboard/01_oem_browser_access.png) |
 
 ---
 
@@ -186,9 +190,10 @@ Access Oracle Enterprise Manager and capture the dashboard reflecting the Oracle
 
 | # | Challenge                                        | Resolution                                                   |
 |---|--------------------------------------------------|--------------------------------------------------------------|
-| 1 | Understanding the CDB vs PDB architecture        | Reviewed Oracle documentation on Multitenant Architecture    |
-| 2 | Ensuring correct naming conventions               | Double-checked all names against the assignment specification |
-| 3 | Connecting to PDB after creation                  | Used `ALTER SESSION SET CONTAINER` and created new SQL Developer connections |
+| 1 | `ORA-65016: FILE_NAME_CONVERT must be specified` | Checked seed datafiles with `con_id = 2` and supplied explicit `FILE_NAME_CONVERT` mapping for seed to new PDB directories. |
+| 2 | Ensuring strict naming conventions               | Used `ar_pdb_20252IMA134`, `arnold_plsqlauca_20252IMA134`, and `ar_to_delete_pdb_20252IMA134` as strictly specified. |
+| 3 | Switching containers                             | Used `ALTER SESSION SET CONTAINER` to navigate between `CDB$ROOT` and PDBs. |
+| 4 | OEM Express in Oracle 23ai                       | Configured HTTPS port 5500 via `DBMS_XDB_CONFIG.SETHTTPSPORT(5500)`; noted that in Oracle 23ai Free, legacy EM Express is replaced by ORDS / Database Actions. |
 
 ---
 
